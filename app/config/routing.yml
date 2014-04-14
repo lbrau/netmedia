@@ -1,0 +1,4 @@
+net_media:
+    resource: "@NetMediaBundle/Resources/config/routing.yml"
+    prefix:   /
+

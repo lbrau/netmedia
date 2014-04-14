@@ -1,0 +1,50 @@
+{#{% include "NetMediaBundle::Admin/admin_layout.html.twig" %}#}
+{% extends 'NetMediaBundle::Admin/admin_layout.html.twig' %}
+{% block body%}
+
+    <div class = "visual">ici le rendu des médias uploaded. Le formulaire est a revoir </div> 
+    <div class = "form">
+        <form action="" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form._token) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Upload Document" />
+        </form>
+    </div>
+    
+    {% block javascript %}
+        <script type="text/javascript" src="{{ asset('bundles/netmedia/js/jq.js')}}">
+        </script>
+        <script>
+           // alert("le layout et les pages hérité sont a définir coté admin");
+           // recuperation de l'evenement apres soumission du form.
+           $('form').on('submit', function() {
+             alert('form soumis');
+             
+             $('visual').html('en cours de tranfert');;
+             //loadJacketFromAjax("coucou");
+           });
+           
+           function loadJacketFromAjax(sOptions)
+            {
+                // recuperation du titre du media.
+                var titre = $('#form-titre');
+                //alert('coucou toi'); 
+                $.ajax({
+                    type: "POST",
+                    url:  "{{ path ('net_media_admin_home_page2') }}",
+                    data: { myparam: "my_Param" }, // Contenu du champ de formulaire
+                    success: function(retour) {
+                        //alert('affiche le retour: '+retour);
+                        // La requete ajax est index sur l'évenement du click de la jacket pour le test.(mettre sur l'upload)
+                        $('.visual').html('<img src="'+retour+'">');
+                    }
+                });
+            }
+           
+           $('.visual').on('click', function() {
+               loadJacketFromAjax("coucou");
+                //alert('push');
+           });
+        </script>
+    {% endblock javascript %}
+{% endblock %}

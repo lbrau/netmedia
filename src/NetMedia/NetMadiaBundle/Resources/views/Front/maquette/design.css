@@ -1,0 +1,165 @@
+#header {
+	width: 100%;
+	height: 100px;
+	background-color: #000000;
+	border-bottom: 3px solid #f01010;
+	border-radius: 0px 0px 7px 7px;
+}
+
+html {
+/* 	height: 100%; */
+}
+
+body {
+	position: relative;
+/*  	height: 800px; /* voir pour adapter la taille synamiquement a l'ecran */ 
+/* 	min-height: 100%; */
+/*
+	height: 100%;
+	width: 100%;
+*/
+	background-color: #494141;
+}
+
+#menu {
+	position: relative;
+	padding: 10px 0px ;
+	width: 200px;
+	min-height: 600px;;
+	background-color: #000000;
+	margin-top: 20px;
+	border-right: 3px solid #f01010;
+	border-radius: 22px 22px 22px 22px;
+	float: left;
+}
+
+#menu div{
+	margin: 5px;
+	left: 20px;
+}
+
+#menu img {
+	border-radius: 5px; 
+	
+}
+
+#menu-h {
+	margin-left: 210px;
+	width: 85%;
+	height: 30px;
+	margin-top: 0;
+	padding-top: 0;
+	background-color: #000000;
+}
+
+#menu-h ul:hover {
+	color: #f1dfdf;
+}
+
+
+
+#menu-h ul {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 10px;
+	bottom: 10px;
+	background-color: #ec4c54;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: 10px;
+	border-radius: 5px;
+}
+
+#menu-h div {
+	text-align: center;
+}
+
+#menu-h ul li{
+	display: none;
+}
+
+#wrapper {
+	/* 	width: 85%; */
+/* 	min-width: 500px; */
+/* 	min-height: 100%; */
+
+	height: 800px;
+	background-color: #161414;
+	margin-left: 210px;
+	margin-top: 5px;
+	overflow: auto;
+	text-align: center;
+	padding: 10px 0px ;
+}
+
+#wrapper .item {
+	position: relative;
+	display: inline-block;
+	top: 5px;
+	margin: auto;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+	margin: 5px;
+}
+
+.item img {
+	border-bottom-right-radius: : 1px solid #e41010;
+	border-radius: 10px;
+}
+
+
+img {
+	width: 150px;
+	height: 150px;
+}
+
+.wrapper {
+	margin: 0;
+	border-top: 1px solid #d02121;
+	margin-top: 10px;
+	color: white;
+	width: 40%;
+	height: 100%;
+	overflow: auto;
+	display: inline-block;
+	vertical-align: top;
+}
+
+::-webkit-scrollbar {
+	width: 1px;
+	height: 10px;
+	background-color: #383535;
+}
+.carousel {
+	position: relative;
+	background-color: #c65a5a;
+	width: 1000px;
+	height: 200px;
+	margin: 10px;
+	margin-left: 0;
+	padding: 5px;
+}
+
+.carousel img {
+	border-radius: 10px;
+	margin: 5px;
+	padding: 5px;
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+.carousel div {
+	text-align: center;
+	left: 20px;
+	top: 20px;
+	margin: 10px;
+}
+
+/*
+#footer {
+	height: 200px;
+	background-color: #000000;
+}
+*/
+

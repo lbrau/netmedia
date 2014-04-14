@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<title>{% block title %}Accueil des producteurs{% endblock %}</title>
+        {% stylesheets '@NetMediaBundle/Resources/public/css/design.css'%}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        <div id = "header">
+            Layout du coté admin a définir
+        </div>
+        <div id = "wrapper">
+            {% block body %}
+
+            {% endblock %}
+        </div>
+        {% block javascript %}
+            <script type="text/javascript" src="{{ asset('bundles/netmedia/js/jq.js')}}">
+            </script>
+    {% endblock javascript %}
+        <div id = "footer">footer</div>
+    </body>
+</html>

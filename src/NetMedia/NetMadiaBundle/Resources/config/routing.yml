@@ -1,0 +1,15 @@
+net_media_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: NetMediaBundle:Default:index }
+
+net_media_accueil:
+    pattern:  /accueil
+    defaults: { _controller: NetMediaBundle:Front:accueil }
+    
+net_media_admin_home_page:
+    pattern:  /admin
+    defaults: { _controller: NetMediaBundle:Admin:homePage }
+
+net_media_admin_home_page2:
+    pattern:  /admin/test
+    defaults: { _controller: NetMediaBundle:Admin:homePage2 }

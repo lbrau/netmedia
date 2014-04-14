@@ -1,0 +1,123 @@
+<html>
+    <head>
+		<title>Le club</title>
+		<meta http-equiv="Content-Type" content="" charset=utf-8"/> <!--une prise en chagrer des accents assez curieuse -->
+		{% stylesheets '@NetMediaBundle/Resources/public/css/design.css'%}
+                    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+                {% endstylesheets %}
+                    
+                <!--<link href="design.css" rel="stylesheet" type="text/css" /> -->
+                <script type="text/javascript" src="{{ asset('bundles/netmedia/js/jq.js')}}">
+                </script>
+                <script type="text/javascript" src="{{ asset('bundles/netmedia/js/carouFredSel-6.2/jquery.carouFredSel-6.2.1.js')}}">
+                </script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			    // Using default configuration
+			    
+                            $('#carousel').carouFredSel();
+			    // Using custom configuration
+			    $('#carousel').carouFredSel({
+			        items               : 2,
+			        direction           : "right",
+			        scroll : {
+			            items           : 1,
+			            easing          : "quadratic",
+			            duration        : 500,                         
+			            pauseOnHover    : true
+			        }                   
+			    });
+			});
+			$(document).ready(function() {
+			    // Using default configuration
+			    $('#carousel2').carouFredSel();
+			
+			    // Using custom configuration
+			    $('#carousel2').carouFredSel({
+			        items               : 7,
+			        direction           : "up",
+			        scroll : {
+			            items           : 7,
+			            easing          : "quadratic",
+			            duration        : 2500,                         
+			            pauseOnHover    : false
+			        }                   
+			    });
+			});
+		</script>
+	</head>
+    <body>
+        {% javascripts '@NetMediaBundle/Resources/public/js/*' %}
+        	<script src="{{ asset_url }}"></script>
+    	{% endjavascripts %}
+        <div id = "header">
+            ici le header
+        </div>
+        <div id = "wrapper">
+            {% block body %}
+                
+            {% endblock %}
+        </div>
+        {% block javascript %}
+            <script type="text/javascript" src="{{ asset('bundles/netmedia/js/jq.js')}}">
+            </script>
+            <script type="text/javascript">
+                    // Execution de cette fonction lorsque le DOM sera entièrement chargé
+                      $(document).ready(function() {
+                              // Calcul préalables :
+                                      // Element de référence pour la zone de visualisation (ici le premier item)
+                                      Reference = $(".carrousel li:first-child");
+                                      // Nombre d'éléments de la liste
+                                      NbElement = $(".carrousel li").length;
+                              // Ciblage de la bande de diapositives
+                              $(".carrousel")
+                                      // Englobage de la liste par la zone de visualisation
+                                      .wrap('<div class="carrousel-conteneur"></div>')
+                                      // Application d'une largeur à la bande de diapositive afin de conserver une structrure horizontale
+                                      .css("heigth", (Reference.width() * NbElement) );
+                              // Ciblage de la zone de visualisation
+
+                              $(".carrousel-conteneur")
+                              // Application de la largeur d'une seule diapositive
+                              .width(  Reference.width()  )
+                              // Application de la hauteur d'une seule diapositive
+                              .height( Reference.height() )
+                              // Blocage des débordements
+                              .css("overflow", "hidden")
+                              // Insertion des boutons de navigation
+                              .after(''
+                                      +	'<ul class="carrousel-pagination">'
+                                      +	'	<li class="carrousel-prev"><button type="button">Précédent</button></li>'
+                                      +	'	<li class="carrousel-next"><button type="button">Suivant</button></li>'
+                                      +	'</ul>'
+                                      +	''
+                               );
+
+                            // […]
+                            // Actions de navigation
+                            // Initialisation du compteur
+                            Cpt = 0;
+                            // Clic sur le bouton "Suivant"
+                            $(".carrousel-next button").click(function() {
+                                    // Ajout +1 au compteur (nous allons sur la diapositive suivante)
+                                    Cpt++;
+                                    // Mouvement du carrousel en arrière-plan
+                                    $(".carrousel").animate({
+                                            marginLeft : - (Reference.width() * Cpt)
+                                    });
+                            });
+                            // Clic sur le bouton "Précédent"
+                            $(".carrousel-prev button").click(function() {
+                                    // Soustraction -1 au compteur (nous allons sur la diapositive précédente)
+                                    Cpt--;
+                                    // Mouvement du carrousel en arrière-plan
+                                    $(".carrousel").animate({
+                                            marginLeft : - (Reference.width() * Cpt)
+                                    });
+                            });
+                      });
+                </script>
+        {% endblock javascript %}
+        <div id = "footer">footer</div>
+    </body>
+</html>
